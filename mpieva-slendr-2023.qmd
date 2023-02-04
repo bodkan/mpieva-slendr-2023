@@ -15,6 +15,8 @@ format:
   #   echo: true
   #   code-line-numbers: false
   #   fig-align: center
+execute: 
+  cache: true
 ---
 
 # 
@@ -312,12 +314,14 @@ source: [link](https://tskit.dev/msprime/docs/stable/demography.html#demographic
 
 # Let's get started
 
-## We will need `slendr` & `tidyverse`
+## We will need _slendr_ & _tidyverse_
 
 <br>
 
 ```{r}
-library(tidyverse) # load data analysis and plotting packages
+library(dplyr) # load data analysis and plotting packages
+library(ggplot2)
+library(magrittr)
 
 library(slendr)    # enable slendr simulations
 init_env()         # setup slendr's internal machinery
@@ -335,17 +339,18 @@ RStudio sometimes interferes with Python setup needed for simulation. To fix thi
 
 <h1>*slendr* workflow:<br><br></h1>
 
-<h3>Build models from simple components</h3>
+<right>
+<h4>build simple models</h4>
 
 <br>
 
-<h3>Then simulate data from them</h3>
+<h4>simulate data from them</h4>
 
 <br>
 
-<h3>All within a single R script</h3>
+<h4>in just one R script</h4>
 
-<br>
+<right>
 
 ## Typical steps
 
@@ -568,7 +573,8 @@ We have a compiled `model` object, how do we simulate data?
 
 Take a model object and use the built-in simulation engine:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 ts <- msprime(model, sequence_length = 100e6, recombination_rate = 1e-8)
 ```
 
@@ -706,7 +712,7 @@ plot_model(model)
 <br>
 
 ```{r}
-ts <- msprime(model, sequence_length = 100e6, recombination_rate = 1e-8)
+ts <- msprime(model, sequence_length = 1e6, recombination_rate = 1e-8)
 ```
 
 . . .
@@ -1090,6 +1096,7 @@ gf <- gene_flow(from = p1, to = p2, start = 500, end = 600, rate = 0.13)
 Multiple gene-flow events can be gathered in a list:
 
 ```{r}
+#| eval: false
 gf <- list(
   gene_flow(from = p1, to = p2, start = 500, end = 600, rate = 0.13),
   gene_flow(from = <..>, to = <..>, start = <...>, end = <...>, rate = <...>)
