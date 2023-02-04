@@ -22,21 +22,19 @@ This README summarizes steps needed to set up your machine for the lecture and e
 
 Getting *slendr* to work is critical. The whole workshop is dedicated to this package.
 
-First, run this in your R console:
+You can install *slendr* with this:
 
     install.packages("slendr")
 
-Assuming the above runs successfully, you will next need to setup a dedicated Python environment with tools we'll be using for simulation and analysis. To do this, *slendr* provides a helper function [`setup_env()`](https://www.slendr.net/reference/setup_env.html) that takes care of everything on your behalf.
-
-First, load *slendr* itself.
+After installation, load *slendr* itself.
 
     library(slendr)
 
-This will very likely write a message that you are:
+This will very likely write a message that:
 
-1.  missing SLiM -- this is OK, feel free to ignore this
+1.  you are missing SLiM -- this is OK, feel free to ignore this
 
-2.  missing a Python environment.
+2.  you are missing a Python environment -- we will fix this in the next step.
 
 Next, run the following command. This will ask for permission to install an isolated Python mini-environment just for *slendr* -- this won't affect your own Python setup at all, so don't be afraid to confirm this!
 
@@ -48,7 +46,7 @@ Finally, make sure you get a positive confirmation from the following check:
 
 **On future occasions, you will have to call `init_env()` after running `library(slendr)`!**
 
-# Testing the setup
+## Testing the setup
 
 Copy the following script to your R session after you successfully installed your R dependencies as described above.
 
