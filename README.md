@@ -76,7 +76,7 @@ Copy the following script to your R session after you successfully installed you
 If this runs without error and you get a small summary table with simulated samples, you're all set!
 
 
-## Other R package dependencies
+# Other R package dependencies
 
 I will use some tidyverse packages for analysis and plotting.
 
