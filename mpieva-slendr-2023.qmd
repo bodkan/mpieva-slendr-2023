@@ -102,11 +102,11 @@ We need *populations*.
 
 We need *genetics*.
 
-# A chromosome is...
+## A chromosome is...
 
-![](images/dna_sequence.png)
+![](images/dna_sequence.png){fig-align="center" width="50%"}
 
-...a linear sequence of nucleotides...
+<br>...a linear sequence of nucleotides...
 
 . . .
 
@@ -115,13 +115,11 @@ We need *genetics*.
 
 . . .
 
-... which accumulates mutations at a given *mutation rate*.
+<br>
 
-. . .
+<center>***This could be a simple vector of letters/numbers in R.***</center>
 
-<center>*This could be a simple vector of letters/numbers in R.*</center>
-
-# A population is...
+## A population is...
 
 . . .
 
@@ -135,51 +133,49 @@ Each carrying a pair of *chromosomes* inherited from parents.
 
 . . .
 
-Chromosomes recombine at a certain *recombination rate*.
+<br>
+
+<center>***This could be a a list of "chromosome vectors" in R...***</center>
+
+. . .
+
+<br>
+
+<center>***... evolving (in a for loop), from generation to generation.***</center>
 
 #  {background-image="images/montypython.jpeg"}
 
-::: fragment
-<h1 color="black" style="background-color: white">
-
-But now for something completely different.
-
-</h1>
-:::
-
-#  {background-image="images/montypython.jpeg"}
+<div>
 
 <h1 color="black" style="background-color: white">
 
-Let's do "real" simulations!
+Let's talk about "real" simulations.
 
 </h1>
 
-## There are many kinds of simulation tools
+</div>
+
+## There are many simulation tools
 
 <br>
 
 The most famous and widely used are [SLiM](https://messerlab.org/slim/) and [msprime](https://tskit.dev/msprime/docs/stable/intro.html).
 
 ::: fragment
+<br>
+
 Both are very powerful...
-:::
 
-::: fragment
 ... but they require a lot of programming knowledge\...
-:::
 
-::: fragment
 ... and a lot of code for non-trivial simulations (🐛🪲🐜).
-:::
 
-::: fragment
 :::
 
 ::: fragment
 <br>
 
-<center>**Which is why we will focus on [*slendr*](http://www.slendr.net),**<br>a convenient R interface to both SLiM and msprime.</center>
+<center>**This is why we will focus on [*slendr*](http://www.slendr.net),**<br>a convenient R interface to both SLiM and msprime.</center>
 :::
 
 # SLiM

@@ -478,6 +478,7 @@ Martin Petr
 </div>
 </section>
 
+<section>
 <section id="if-we-want-to-simulate-population-genetics" class="title-slide slide level1 center">
 <h1>If we want to simulate population genetics…</h1>
 <p><br></p>
@@ -488,11 +489,10 @@ Martin Petr
 <p>We need <em>genetics</em>.</p>
 </div>
 </section>
+<section id="a-chromosome-is" class="slide level2">
+<h2>A chromosome is…</h2>
 
-<section id="a-chromosome-is" class="title-slide slide level1 center">
-<h1>A chromosome is…</h1>
-
-<img data-src="images/dna_sequence.png" class="r-stretch"><p>…a linear sequence of nucleotides…</p>
+<img data-src="images/dna_sequence.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p><br>…a linear sequence of nucleotides…</p>
 <div class="fragment">
 <ul>
 <li>a list of characters (A/G/C/T nucleotides)</li>
@@ -500,17 +500,14 @@ Martin Petr
 </ul>
 </div>
 <div class="fragment">
-<p>… which accumulates mutations at a given <em>mutation rate</em>.</p>
-</div>
-<div class="fragment">
+<p><br></p>
 <center>
-<em>This could be a simple vector of letters/numbers in R.</em>
+<strong><em>This could be a simple vector of letters/numbers in R.</em></strong>
 </center>
 </div>
 </section>
-
-<section id="a-population-is" class="title-slide slide level1 center">
-<h1>A population is…</h1>
+<section id="a-population-is" class="slide level2">
+<h2>A population is…</h2>
 <div class="fragment">
 <p><br></p>
 <p>A collection of <em>individuals</em> at a given point in time.</p>
@@ -519,46 +516,41 @@ Martin Petr
 <p>Each carrying a pair of <em>chromosomes</em> inherited from parents.</p>
 </div>
 <div class="fragment">
-<p>Chromosomes recombine at a certain <em>recombination rate</em>.</p>
-</div>
-</section>
-
-<section id="section-1" class="title-slide slide level1 center" data-background-image="images/montypython.jpeg">
-<h1></h1>
-<div class="fragment">
-<h1 color="black" style="background-color: white">
-<p>But now for something completely different.</p>
-</h1>
-</div>
-</section>
-
-<section>
-<section id="section-2" class="title-slide slide level1 center" data-background-image="images/montypython.jpeg">
-<h1></h1>
-<h1 color="black" style="background-color: white">
-<p>Let’s do “real” simulations!</p>
-</h1>
-</section>
-<section id="there-are-many-kinds-of-simulation-tools" class="slide level2">
-<h2>There are many kinds of simulation tools</h2>
 <p><br></p>
-<p>The most famous and widely used are <a href="https://messerlab.org/slim/">SLiM</a> and <a href="https://tskit.dev/msprime/docs/stable/intro.html">msprime</a>.</p>
-<div class="fragment">
-<p>Both are very powerful…</p>
-</div>
-<div class="fragment">
-<p>… but they require a lot of programming knowledge...</p>
-</div>
-<div class="fragment">
-<p>… and a lot of code for non-trivial simulations (🐛🪲🐜).</p>
-</div>
-<div class="fragment">
-
+<center>
+<strong><em>This could be a a list of “chromosome vectors” in R…</em></strong>
+</center>
 </div>
 <div class="fragment">
 <p><br></p>
 <center>
-<strong>Which is why we will focus on <a href="http://www.slendr.net"><em>slendr</em></a>,</strong><br>a convenient R interface to both SLiM and msprime.
+<strong><em>… evolving (in a for loop), from generation to generation.</em></strong>
+</center>
+</div>
+</section></section>
+<section>
+<section id="section-1" class="title-slide slide level1 center" data-background-image="images/montypython.jpeg">
+<h1></h1>
+<div>
+<h1 color="black" style="background-color: white">
+<p>Let’s talk about “real” simulations.</p>
+</h1>
+</div>
+</section>
+<section id="there-are-many-simulation-tools" class="slide level2">
+<h2>There are many simulation tools</h2>
+<p><br></p>
+<p>The most famous and widely used are <a href="https://messerlab.org/slim/">SLiM</a> and <a href="https://tskit.dev/msprime/docs/stable/intro.html">msprime</a>.</p>
+<div class="fragment">
+<p><br></p>
+<p>Both are very powerful…</p>
+<p>… but they require a lot of programming knowledge...</p>
+<p>… and a lot of code for non-trivial simulations (🐛🪲🐜).</p>
+</div>
+<div class="fragment">
+<p><br></p>
+<center>
+<strong>This is why we will focus on <a href="http://www.slendr.net"><em>slendr</em></a>,</strong><br>a convenient R interface to both SLiM and msprime.
 </center>
 </div>
 </section></section>
@@ -567,7 +559,7 @@ Martin Petr
 <h1>SLiM</h1>
 
 </section>
-<section id="section-3" class="slide level2">
+<section id="section-2" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -658,7 +650,7 @@ What is SLiM?
 <h1>msprime</h1>
 
 </section>
-<section id="section-4" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -677,7 +669,7 @@ What is <a href="https://tskit.dev/msprime/docs/stable/intro.html">msprime</a>?
 </div>
 </div>
 </section>
-<section id="section-5" class="slide level2">
+<section id="section-4" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -737,7 +729,7 @@ ts = msprime.sim_ancestry(
 <p>source: <a href="https://tskit.dev/msprime/docs/stable/demography.html#demographic-models">link</a></p>
 </div></aside></section></section>
 <section>
-<section id="section-6" class="title-slide slide level1 center">
+<section id="section-5" class="title-slide slide level1 center">
 <h1></h1>
 <center>
 <p><img data-src="images/slendr_logo.png" style="width:30.0%"></p>
@@ -804,7 +796,7 @@ ts = msprime.sim_ancestry(
 </center>
 </section></section>
 <section>
-<section id="section-7" class="title-slide slide level1 center">
+<section id="section-6" class="title-slide slide level1 center">
 <h1></h1>
 <h1>
 <em>slendr</em> workflow:<br><br>
