@@ -48,14 +48,6 @@ Finally, make sure you get a positive confirmation from the following check:
     
 **On future occasions, you will have to call `init_env()` after running `library(slendr)`!**
 
-## Other R package dependencies
-
-I will use some tidyverse packages for analysis and plotting.
-
-I recommend you install the following packages:
-
-    install.packages(c("dplyr", "ggplot2", "magrittr", "MASS"))
-
 # Testing the setup
 
 Copy the following script to your R session after you successfully installed your R dependencies as described above.
@@ -82,3 +74,12 @@ Copy the following script to your R session after you successfully installed you
     ts_samples(ts)
 
 If this runs without error and you get a small summary table with simulated samples, you're all set!
+
+
+## Other R package dependencies
+
+I will use some tidyverse packages for analysis and plotting.
+
+I recommend you install the following packages:
+
+    install.packages(c("dplyr", "ggplot2", "magrittr", "MASS"))
