@@ -1,4 +1,4 @@
-# _slendr_ simulation workshop at MPI EVA (2023)
+# *slendr* simulation workshop at MPI EVA (2023)
 
 ### You can find the slides [here]().
 
@@ -45,7 +45,7 @@ Next, run the following command. This will ask for permission to install an isol
 Finally, make sure you get a positive confirmation from the following check:
 
     check_env()
-    
+
 **On future occasions, you will have to call `init_env()` after running `library(slendr)`!**
 
 # Testing the setup
@@ -75,7 +75,6 @@ Copy the following script to your R session after you successfully installed you
 
 If this runs without error and you get a small summary table with simulated samples, you're all set!
 
-
 # Other R package dependencies
 
 I will use some tidyverse packages for analysis and plotting.
@@ -83,10 +82,9 @@ I will use some tidyverse packages for analysis and plotting.
 I recommend you install the following packages:
 
     install.packages(c("dplyr", "ggplot2", "magrittr", "MASS"))
-    
 
 ## Python+RStudio issue
 
 RStudio sometimes interferes with Python setup needed for simulation. To fix this, go to `Tools` -\> `Global Options` in RStudio and set the following options:
 
-![](images/rstudio_setting.png){width="40%"}
+![](images/rstudio_setting.png){width="50%"}
