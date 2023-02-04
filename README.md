@@ -87,4 +87,4 @@ I recommend you install the following packages:
 
 RStudio sometimes interferes with Python setup needed for simulation. To fix this, go to `Tools` -\> `Global Options` in RStudio and set the following options:
 
-<img src="images/rstudio_setting.png" width="50%">
+<img src="images/rstudio_setting.png" width="70%">
