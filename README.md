@@ -83,7 +83,7 @@ I recommend you install the following packages:
 
     install.packages(c("dplyr", "ggplot2", "magrittr", "MASS"))
 
-## Python+RStudio issue
+# Python+RStudio issue
 
 RStudio sometimes interferes with Python setup needed for simulation. To fix this, go to `Tools` -\> `Global Options` in RStudio and set the following options:
 
