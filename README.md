@@ -16,7 +16,7 @@ This README summarizes steps needed to set up your machine for the lecture and e
 
 -   Working [R installation](https://cloud.r-project.org)(at least R 3.6, preferably 4.x)
 -   [RStudio](https://www.rstudio.com/products/rstudio/download/) highly recommended
--   macOS / Linux / Windows (the latter won't support SLiM-based simulations though)
+-   macOS / Linux / Windows (the latter won't support SLiM-based simulations, but that's OK!)
 
 ### *slendr* simulation package
 
