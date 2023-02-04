@@ -1,4 +1,4 @@
-# Lecture and exercises on _slendr_ simulation workshop at MPI EVA (2023)
+# _slendr_ simulation workshop at MPI EVA (2023)
 
 ### You can find the slides [here]().
 
