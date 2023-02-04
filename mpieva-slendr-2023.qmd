@@ -1,8 +1,9 @@
 ---
-title: "Simulations in population genetics"
-author:
-  - "Martin Petr, [MPI EVA Leipzig 2023]"
-  - "([CC BY 2.0](https://creativecommons.org/licenses/by/2.0/))"
+title: "_slendr_ simulations"
+subtitle: "practical workshop at MPI EVA Leipzig"
+author: "Martin Petr"
+date: "February 2023"
+date-format: "MMMM YYYY"
 format:
   revealjs:
     eval: true
@@ -33,18 +34,18 @@ execute:
 :::
 :::
 
-# Why simulate genomic data?
+# Why use simulations?
 
 1.  Making sense of estimated statistics
-2.  Fitting model parameters (i.e. [ABC](https://en.wikipedia.org/wiki/Approximate_Bayesian_computation))
-3.  Ground truth for method development
+2.  Fitting model parameters
+3.  Ground truth for method work
 
-## Understanding estimated statistics
+## Making sense of estimated statistics
 
 <center>![](images/bacho_kiro.png){width="70%"}</center>
 
 ::: aside
-Image from [Hajdinjak (2021)](https://www.nature.com/articles/s41586-021-03335-3/figures/2)
+[Hajdinjak (2021)](https://www.nature.com/articles/s41586-021-03335-3/figures/2)
 :::
 
 ## Making sense of estimated statistics
@@ -52,7 +53,7 @@ Image from [Hajdinjak (2021)](https://www.nature.com/articles/s41586-021-03335-3
 <center>![](images/elephants.png){width="65%"}</center>
 
 ::: aside
-Image from [Palkopoulou (2018)](https://www.pnas.org/doi/10.1073/pnas.1720554115)
+[Palkopoulou (2018)](https://www.pnas.org/doi/10.1073/pnas.1720554115)
 :::
 
 ## Making sense of estimated statistics
@@ -60,10 +61,8 @@ Image from [Palkopoulou (2018)](https://www.pnas.org/doi/10.1073/pnas.1720554115
 <center>![](images/neand_decline.png){width="65%"}</center>
 
 ::: aside
-Image from [Petr (2019)](https://www.pnas.org/doi/abs/10.1073/pnas.1814338116)
+[Petr (2019)](https://www.pnas.org/doi/abs/10.1073/pnas.1814338116)
 :::
-
-## 
 
 ## Fitting model parameters (i.e. [ABC](https://en.wikipedia.org/wiki/Approximate_Bayesian_computation))
 
@@ -73,12 +72,12 @@ Image from [Petr (2019)](https://www.pnas.org/doi/abs/10.1073/pnas.1814338116)
 Image from [Wikipedia on ABC](https://en.wikipedia.org/wiki/Approximate_Bayesian_computation)
 :::
 
-## Ground truth for method development
+## Ground truth for methods work
 
 <center>![](images/mcmc.png)</center>
 
 ::: aside
-Image from [Schiffels and Durbin (2014)](https://www.nature.com/articles/ng.3015)
+[Schiffels and Durbin (2014)](https://www.nature.com/articles/ng.3015)
 :::
 
 # What does it mean to simulate a genome?
@@ -91,7 +90,7 @@ How would you design an algorithm for a popgen simulation?
 
 Which minimal pieces are needed for the program to be useful?
 
-# If we want to simulate population genetics
+# If we want to simulate population genetics...
 
 <br>
 
@@ -118,7 +117,13 @@ We need *genetics*.
 
 ... which accumulates mutations at a given *mutation rate*.
 
+. . .
+
+<center>*This could be a simple vector of letters/numbers in R.*</center>
+
 # A population is...
+
+. . .
 
 <br>
 
@@ -314,7 +319,7 @@ source: [link](https://tskit.dev/msprime/docs/stable/demography.html#demographic
 
 # Let's get started
 
-## We will need _slendr_ & _tidyverse_
+## We will need *slendr* & *tidyverse*
 
 <br>
 
@@ -340,6 +345,7 @@ RStudio sometimes interferes with Python setup needed for simulation. To fix thi
 <h1>*slendr* workflow:<br><br></h1>
 
 <right>
+
 <h4>build simple models</h4>
 
 <br>

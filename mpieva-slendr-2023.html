@@ -9,9 +9,8 @@
 <link href="mpieva-slendr-2023_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.269">
 
-  <meta name="author" content="Martin Petr, [MPI EVA Leipzig 2023]">
-  <meta name="author" content="(CC BY 2.0)">
-  <title>Simulations in population genetics</title>
+  <meta name="author" content="Martin Petr">
+  <title>slendr simulations</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -389,21 +388,18 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Simulations in population genetics</h1>
+  <h1 class="title"><em>slendr</em> simulations</h1>
+  <p class="subtitle">practical workshop at MPI EVA Leipzig</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Martin Petr, [MPI EVA Leipzig 2023] 
-</div>
-</div>
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-(<a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>) 
+Martin Petr 
 </div>
 </div>
 </div>
 
+  <p class="date">February 2023</p>
 </section>
 <section id="section" class="title-slide slide level1 center">
 <h1></h1>
@@ -420,44 +416,41 @@ Martin Petr, [MPI EVA Leipzig 2023]
 </section>
 
 <section>
-<section id="why-simulate-genomic-data" class="title-slide slide level1 center">
-<h1>Why simulate genomic data?</h1>
+<section id="why-use-simulations" class="title-slide slide level1 center">
+<h1>Why use simulations?</h1>
 <ol type="1">
 <li>Making sense of estimated statistics</li>
-<li>Fitting model parameters (i.e.&nbsp;<a href="https://en.wikipedia.org/wiki/Approximate_Bayesian_computation">ABC</a>)</li>
-<li>Ground truth for method development</li>
+<li>Fitting model parameters</li>
+<li>Ground truth for method work</li>
 </ol>
 </section>
-<section id="understanding-estimated-statistics" class="slide level2">
-<h2>Understanding estimated statistics</h2>
+<section id="making-sense-of-estimated-statistics" class="slide level2">
+<h2>Making sense of estimated statistics</h2>
 <center>
 <img data-src="images/bacho_kiro.png" style="width:70.0%">
 </center>
 
 <aside><div>
-<p>Image from <a href="https://www.nature.com/articles/s41586-021-03335-3/figures/2">Hajdinjak (2021)</a></p>
+<p><a href="https://www.nature.com/articles/s41586-021-03335-3/figures/2">Hajdinjak (2021)</a></p>
 </div></aside></section>
-<section id="making-sense-of-estimated-statistics" class="slide level2">
+<section id="making-sense-of-estimated-statistics-1" class="slide level2">
 <h2>Making sense of estimated statistics</h2>
 <center>
 <img data-src="images/elephants.png" style="width:65.0%">
 </center>
 
 <aside><div>
-<p>Image from <a href="https://www.pnas.org/doi/10.1073/pnas.1720554115">Palkopoulou (2018)</a></p>
+<p><a href="https://www.pnas.org/doi/10.1073/pnas.1720554115">Palkopoulou (2018)</a></p>
 </div></aside></section>
-<section id="making-sense-of-estimated-statistics-1" class="slide level2">
+<section id="making-sense-of-estimated-statistics-2" class="slide level2">
 <h2>Making sense of estimated statistics</h2>
 <center>
 <img data-src="images/neand_decline.png" style="width:65.0%">
 </center>
 
 <aside><div>
-<p>Image from <a href="https://www.pnas.org/doi/abs/10.1073/pnas.1814338116">Petr (2019)</a></p>
+<p><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1814338116">Petr (2019)</a></p>
 </div></aside></section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-</section>
 <section id="fitting-model-parameters-i.e.-abc" class="slide level2">
 <h2>Fitting model parameters (i.e.&nbsp;<a href="https://en.wikipedia.org/wiki/Approximate_Bayesian_computation">ABC</a>)</h2>
 <center>
@@ -467,14 +460,14 @@ Martin Petr, [MPI EVA Leipzig 2023]
 <aside><div>
 <p>Image from <a href="https://en.wikipedia.org/wiki/Approximate_Bayesian_computation">Wikipedia on ABC</a></p>
 </div></aside></section>
-<section id="ground-truth-for-method-development" class="slide level2">
-<h2>Ground truth for method development</h2>
+<section id="ground-truth-for-methods-work" class="slide level2">
+<h2>Ground truth for methods work</h2>
 <center>
 <img data-src="images/mcmc.png">
 </center>
 
 <aside><div>
-<p>Image from <a href="https://www.nature.com/articles/ng.3015">Schiffels and Durbin (2014)</a></p>
+<p><a href="https://www.nature.com/articles/ng.3015">Schiffels and Durbin (2014)</a></p>
 </div></aside></section></section>
 <section id="what-does-it-mean-to-simulate-a-genome" class="title-slide slide level1 center">
 <h1>What does it mean to simulate a genome?</h1>
@@ -486,7 +479,7 @@ Martin Petr, [MPI EVA Leipzig 2023]
 </section>
 
 <section id="if-we-want-to-simulate-population-genetics" class="title-slide slide level1 center">
-<h1>If we want to simulate population genetics</h1>
+<h1>If we want to simulate population genetics…</h1>
 <p><br></p>
 <div class="fragment">
 <p>We need <em>populations</em>.</p>
@@ -509,12 +502,19 @@ Martin Petr, [MPI EVA Leipzig 2023]
 <div class="fragment">
 <p>… which accumulates mutations at a given <em>mutation rate</em>.</p>
 </div>
+<div class="fragment">
+<center>
+<em>This could be a simple vector of letters/numbers in R.</em>
+</center>
+</div>
 </section>
 
 <section id="a-population-is" class="title-slide slide level1 center">
 <h1>A population is…</h1>
+<div class="fragment">
 <p><br></p>
 <p>A collection of <em>individuals</em> at a given point in time.</p>
+</div>
 <div class="fragment">
 <p>Each carrying a pair of <em>chromosomes</em> inherited from parents.</p>
 </div>
@@ -523,7 +523,7 @@ Martin Petr, [MPI EVA Leipzig 2023]
 </div>
 </section>
 
-<section id="section-2" class="title-slide slide level1 center" data-background-image="images/montypython.jpeg">
+<section id="section-1" class="title-slide slide level1 center" data-background-image="images/montypython.jpeg">
 <h1></h1>
 <div class="fragment">
 <h1 color="black" style="background-color: white">
@@ -533,7 +533,7 @@ Martin Petr, [MPI EVA Leipzig 2023]
 </section>
 
 <section>
-<section id="section-3" class="title-slide slide level1 center" data-background-image="images/montypython.jpeg">
+<section id="section-2" class="title-slide slide level1 center" data-background-image="images/montypython.jpeg">
 <h1></h1>
 <h1 color="black" style="background-color: white">
 <p>Let’s do “real” simulations!</p>
@@ -567,7 +567,7 @@ Martin Petr, [MPI EVA Leipzig 2023]
 <h1>SLiM</h1>
 
 </section>
-<section id="section-4" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -619,7 +619,7 @@ What is SLiM?
 </section>
 <section id="simple-neutral-simulation-in-slim" class="slide level2">
 <h2>Simple neutral simulation in SLiM</h2>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-1_cc1fce7a1c517b37be909709e364d9d7">
 <div class="cell-output cell-output-stdout">
 <pre><code>initialize() {
     // create a neutral mutation type
@@ -658,7 +658,7 @@ What is SLiM?
 <h1>msprime</h1>
 
 </section>
-<section id="section-5" class="slide level2">
+<section id="section-4" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -677,7 +677,7 @@ What is <a href="https://tskit.dev/msprime/docs/stable/intro.html">msprime</a>?
 </div>
 </div>
 </section>
-<section id="section-6" class="slide level2">
+<section id="section-5" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -714,7 +714,7 @@ What is <a href="https://tskit.dev/msprime/docs/stable/intro.html">msprime</a>?
 <section id="simple-simulation-using-msprime" class="slide level2">
 <h2>Simple simulation using <em>msprime</em></h2>
 <p>The following is basically the same model as the SLiM script earlier: &nbsp;</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-2_42b3a7e7b9acc4b2e49df33a28536c59">
 <div class="cell-output cell-output-stdout">
 <pre><code>import msprime
 
@@ -737,7 +737,7 @@ ts = msprime.sim_ancestry(
 <p>source: <a href="https://tskit.dev/msprime/docs/stable/demography.html#demographic-models">link</a></p>
 </div></aside></section></section>
 <section>
-<section id="section-7" class="title-slide slide level1 center">
+<section id="section-6" class="title-slide slide level1 center">
 <h1></h1>
 <center>
 <p><img data-src="images/slendr_logo.png" style="width:30.0%"></p>
@@ -782,13 +782,15 @@ ts = msprime.sim_ancestry(
 
 </section>
 <section id="we-will-need-slendr-tidyverse" class="slide level2">
-<h2>We will need <code>slendr</code> &amp; <code>tidyverse</code></h2>
+<h2>We will need <em>slendr</em> &amp; <em>tidyverse</em></h2>
 <p><br></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># load data analysis and plotting packages</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(slendr)    <span class="co"># enable slendr simulations</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">init_env</span>()         <span class="co"># setup slendr's internal machinery</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-3_e463f44b1f00f0ec3721857301467b87">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co"># load data analysis and plotting packages</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(slendr)    <span class="co"># enable slendr simulations</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">init_env</span>()         <span class="co"># setup slendr's internal machinery</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <center>
 <small><br><em>(ignore the message about missing SLiM)</em></small>
@@ -802,23 +804,24 @@ ts = msprime.sim_ancestry(
 </center>
 </section></section>
 <section>
-<section id="section-8" class="title-slide slide level1 center">
+<section id="section-7" class="title-slide slide level1 center">
 <h1></h1>
 <h1>
 <em>slendr</em> workflow:<br><br>
 </h1>
-<h3>
-Build models from simple components
-</h3>
+<p><right></right></p>
+<h4>
+build simple models
+</h4>
 <p><br></p>
-<h3>
-Then simulate data from them
-</h3>
+<h4>
+simulate data from them
+</h4>
 <p><br></p>
-<h3>
-All within a single R script
-</h3>
-<p><br></p>
+<h4>
+in just one R script
+</h4>
+<p><right></right></p>
 </section>
 <section id="typical-steps" class="slide level2">
 <h2>Typical steps</h2>
@@ -835,13 +838,13 @@ All within a single R script
 <section id="creating-a-population" class="slide level2">
 <h2>Creating a population</h2>
 <p>The name, size and time of appearance (“split”) must be given:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-4_e902f4c7a9e1f994a2be7749ed2c15c6">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">population</span>(<span class="st">"pop1"</span>, <span class="at">N =</span> <span class="dv">1000</span>, <span class="at">time =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><br></p>
 <p>Typing an object prints out a summary in the R console:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-5_1fe5cc57e5b3cecf6ae734b37a68b419">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pop1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>slendr 'population' object 
@@ -859,13 +862,13 @@ population history overview:
 <section id="programming-population-splits" class="slide level2">
 <h2>Programming population splits</h2>
 <p>Splits are indicated by the <code>parent = &lt;pop&gt;</code> argument:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-6_21ef131d9e1373a2c386ad654af47f8c">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pop2 <span class="ot">&lt;-</span> <span class="fu">population</span>(<span class="st">"pop2"</span>, <span class="at">N =</span> <span class="dv">100</span>, <span class="at">time =</span> <span class="dv">50</span>, <span class="at">parent =</span> pop1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><br></p>
 <p>The split is reported in the “historical summary”:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-7_d4994f3a2b33420f27776318ca09c964">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pop2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>slendr 'population' object 
@@ -883,13 +886,13 @@ population history overview:
 <section id="scheduling-resize-events-resize" class="slide level2">
 <h2>Scheduling resize events – <code>resize()</code></h2>
 <p>Step size decrease:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-8_7e3713605aaf2860065159bb9cfabfb3">
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">population</span>(<span class="st">"pop1"</span>, <span class="at">N =</span> <span class="dv">1000</span>, <span class="at">time =</span> <span class="dv">1</span>)</span>
 <span id="cb10-2"><a href="#cb10-2"></a>pop1_step <span class="ot">&lt;-</span> <span class="fu">resize</span>(pop1, <span class="at">N =</span> <span class="dv">100</span>, <span class="at">time =</span> <span class="dv">500</span>, <span class="at">how =</span> <span class="st">"step"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>Exponential increase:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-9_94a7286de9f2bd3d72f9ed686c74949f">
 <div class="sourceCode cell-code" id="cb11" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>pop2 <span class="ot">&lt;-</span> <span class="fu">population</span>(<span class="st">"pop2"</span>, <span class="at">N =</span> <span class="dv">100</span>, <span class="at">time =</span> <span class="dv">50</span>, <span class="at">parent =</span> pop1)</span>
 <span id="cb11-2"><a href="#cb11-2"></a>pop2_exp <span class="ot">&lt;-</span> <span class="fu">resize</span>(pop2, <span class="at">N =</span> <span class="dv">10000</span>, <span class="at">time =</span> <span class="dv">500</span>, <span class="at">end =</span> <span class="dv">2000</span>, <span class="at">how =</span> <span class="st">"exponential"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -897,14 +900,14 @@ population history overview:
 <section id="tidyverse-style-pipe-interface" class="slide level2">
 <h2>Tidyverse-style <a href="https://magrittr.tidyverse.org">pipe</a> interface</h2>
 <p>Step size decrease:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-10_d3fdd39bbc82f3c84025b0445a404b00">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">population</span>(<span class="st">"pop1"</span>, <span class="at">N =</span> <span class="dv">1000</span>, <span class="at">time =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">resize</span>(<span class="at">N =</span> <span class="dv">100</span>, <span class="at">time =</span> <span class="dv">500</span>, <span class="at">how =</span> <span class="st">"step"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>Exponential increase:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-11_f5731ae1ac43a1c3eda33d6dd6b9f5ab">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pop2 <span class="ot">&lt;-</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">population</span>(<span class="st">"pop2"</span>, <span class="at">N =</span> <span class="dv">1000</span>, <span class="at">time =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">resize</span>(<span class="at">N =</span> <span class="dv">10000</span>, <span class="at">time =</span> <span class="dv">500</span>, <span class="at">end =</span> <span class="dv">2000</span>, <span class="at">how =</span> <span class="st">"exponential"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -916,7 +919,7 @@ population history overview:
 </section>
 <section id="a-more-complex-model" class="slide level2">
 <h2>A more complex model</h2>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-12_f62834192b24e494b088bc2666602e40">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">population</span>(<span class="st">"pop1"</span>, <span class="at">N =</span> <span class="dv">1000</span>, <span class="at">time =</span> <span class="dv">1</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>pop2 <span class="ot">&lt;-</span></span>
@@ -941,7 +944,7 @@ population history overview:
 </section>
 <section id="remember-each-object-carries-its-history" class="slide level2">
 <h2>Remember: each object carries its history</h2>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-13_95af0083aad7dd434f5e894e56ca711d">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>pop5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>slendr 'population' object 
@@ -962,7 +965,7 @@ population history overview:
 <section id="last-step-before-simulation-compilation" class="slide level2">
 <h2>Last step before simulation: compilation</h2>
 <p><br></p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-14_22a10f93e7b69dad55ef0f30ab16bc2f">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">compile_model</span>(</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(pop1, pop2, pop3, pop4, pop5),</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">generation_time =</span> <span class="dv">1</span>,</span>
@@ -977,7 +980,7 @@ population history overview:
 <section id="model-summary" class="slide level2">
 <h2>Model summary</h2>
 <p>Typing the compiled model prints a brief summary:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-15_d9b008ab30dd4e2c93f96207b906215b">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>slendr 'model' object 
@@ -989,7 +992,7 @@ time direction: forward
 total running length: 3000 model time units
 model type: non-spatial
 
-configuration files in: /private/var/folders/d_/hblb15pd3b94rg0v35920wd80000gn/T/RtmpXo2Ok8/file134aa637c49c9 </code></pre>
+configuration files in: /private/var/folders/d_/hblb15pd3b94rg0v35920wd80000gn/T/RtmpqDGwBb/file1595270f878e </code></pre>
 </div>
 </div>
 
@@ -998,7 +1001,7 @@ configuration files in: /private/var/folders/d_/hblb15pd3b94rg0v35920wd80000gn/T
 </div></aside></section>
 <section id="model-visualization" class="slide level2">
 <h2>Model visualization</h2>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-16_3d2f4c00d4732ecd0505954cc7530568">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_model</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
@@ -1013,7 +1016,7 @@ configuration files in: /private/var/folders/d_/hblb15pd3b94rg0v35920wd80000gn/T
 <div class="columns">
 <div class="column" style="width:55%;">
 <p>You can use this “template” as a starting point:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-17_a768efcc393e885754f3267e9c5c7000">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(slendr)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">init_env</span>()</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1061,7 +1064,7 @@ configuration files in: /private/var/folders/d_/hblb15pd3b94rg0v35920wd80000gn/T
 <div class="fragment">
 <p><small>&nbsp;</small></p>
 <p>Take a model object and use the built-in simulation engine:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-18_666de98af20ae647ba62ee20266e926e">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>ts <span class="ot">&lt;-</span> <span class="fu">msprime</span>(model, <span class="at">sequence_length =</span> <span class="fl">100e6</span>, <span class="at">recombination_rate =</span> <span class="fl">1e-8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -1109,7 +1112,7 @@ Why not VCF, EIGENSTRAT, or something like that?
 <section id="tree-sequences-are-also-very-efficient" class="slide level2">
 <h2>Tree sequences are also very efficient</h2>
 <p>Let’s take this minimalistic model:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-19_7808d73eb1c47811eae85ca167d3df24">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> <span class="fu">population</span>(<span class="st">"pop"</span>, <span class="at">time =</span> <span class="fl">1e6</span>, <span class="at">N =</span> <span class="dv">10000</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">compile_model</span>(pop, <span class="at">generation_time =</span> <span class="dv">30</span>, <span class="at">direction =</span> <span class="st">"backward"</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>ts <span class="ot">&lt;-</span> <span class="fu">msprime</span>(model, <span class="at">sequence_length =</span> <span class="fl">1e6</span>, <span class="at">recombination_rate =</span> <span class="fl">1e-8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1158,13 +1161,13 @@ Why not VCF, EIGENSTRAT, or something like that?
 <h2>Tree-sequence tables in practice</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-20_fe568b736b70055cc08ee6d55c3bcc13">
 <div class="cell-output-display">
 <p><img data-src="mpieva-slendr-2023_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-21_ef0cd25d0a1d7d54f6c0b44e039bbf1c">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ts_table</span>(ts, <span class="st">"nodes"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1185,9 +1188,9 @@ Why not VCF, EIGENSTRAT, or something like that?
 <pre><code># A tibble: 3 × 5
      id child parent  left   right
   &lt;dbl&gt; &lt;int&gt;  &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt;
-1     0   410  20000     0 1000000
-2     1  4459  20000     0 1000000
-3     2  3377  20001     0 1000000</code></pre>
+1     0  7126  20000     0 1000000
+2     1 17716  20000     0 1000000
+3     2  8829  20001     0 1000000</code></pre>
 </div>
 <details>
 <summary>Code</summary>
@@ -1210,8 +1213,8 @@ Why not VCF, EIGENSTRAT, or something like that?
 <h2>Simulating a tree-sequence output</h2>
 <p><br> By default, <code>msprime</code> function automatically loads the tree-sequence that the simulation produced in the background:</p>
 <p><br></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>ts <span class="ot">&lt;-</span> <span class="fu">msprime</span>(model, <span class="at">sequence_length =</span> <span class="fl">100e6</span>, <span class="at">recombination_rate =</span> <span class="fl">1e-8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-23_fcb5a3127567ba51c3d23b25da51a6c8">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>ts <span class="ot">&lt;-</span> <span class="fu">msprime</span>(model, <span class="at">sequence_length =</span> <span class="fl">1e6</span>, <span class="at">recombination_rate =</span> <span class="fl">1e-8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><br></p>
@@ -1220,41 +1223,41 @@ Why not VCF, EIGENSTRAT, or something like that?
 </section>
 <section id="a-tree-sequence-content-summary" class="slide level2">
 <h2>… a tree-sequence content summary</h2>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-24_6f150a25adade19f9972d4884e7ae6b1">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>ts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>╔═══════════════════════════╗
 ║TreeSequence               ║
 ╠═══════════════╤═══════════╣
-║Trees          │     392480║
+║Trees          │       4028║
 ╟───────────────┼───────────╢
-║Sequence Length│  100000000║
+║Sequence Length│    1000000║
 ╟───────────────┼───────────╢
 ║Time Units     │generations║
 ╟───────────────┼───────────╢
 ║Sample Nodes   │      20000║
 ╟───────────────┼───────────╢
-║Total Size     │   66.2 MiB║
+║Total Size     │    3.5 MiB║
 ╚═══════════════╧═══════════╝
-╔═══════════╤═══════╤═════════╤════════════╗
-║Table      │Rows   │Size     │Has Metadata║
-╠═══════════╪═══════╪═════════╪════════════╣
-║Edges      │1527419│ 46.6 MiB│          No║
-╟───────────┼───────┼─────────┼────────────╢
-║Individuals│  10000│273.5 KiB│          No║
-╟───────────┼───────┼─────────┼────────────╢
-║Migrations │      0│  8 Bytes│          No║
-╟───────────┼───────┼─────────┼────────────╢
-║Mutations  │      0│ 16 Bytes│          No║
-╟───────────┼───────┼─────────┼────────────╢
-║Nodes      │ 287533│  7.7 MiB│          No║
-╟───────────┼───────┼─────────┼────────────╢
-║Populations│      1│222 Bytes│         Yes║
-╟───────────┼───────┼─────────┼────────────╢
-║Provenances│      1│  1.3 KiB│          No║
-╟───────────┼───────┼─────────┼────────────╢
-║Sites      │      0│ 16 Bytes│          No║
-╚═══════════╧═══════╧═════════╧════════════╝</code></pre>
+╔═══════════╤═════╤═════════╤════════════╗
+║Table      │Rows │Size     │Has Metadata║
+╠═══════════╪═════╪═════════╪════════════╣
+║Edges      │55260│  1.7 MiB│          No║
+╟───────────┼─────┼─────────┼────────────╢
+║Individuals│10000│273.5 KiB│          No║
+╟───────────┼─────┼─────────┼────────────╢
+║Migrations │    0│  8 Bytes│          No║
+╟───────────┼─────┼─────────┼────────────╢
+║Mutations  │    0│ 16 Bytes│          No║
+╟───────────┼─────┼─────────┼────────────╢
+║Nodes      │43182│  1.2 MiB│          No║
+╟───────────┼─────┼─────────┼────────────╢
+║Populations│    1│222 Bytes│         Yes║
+╟───────────┼─────┼─────────┼────────────╢
+║Provenances│    1│  1.3 KiB│          No║
+╟───────────┼─────┼─────────┼────────────╢
+║Sites      │    0│ 16 Bytes│          No║
+╚═══════════╧═════╧═════════╧════════════╝</code></pre>
 </div>
 </div>
 <!-- ## Saving a tree-sequence permanently -->
@@ -1315,10 +1318,10 @@ First, to analyze data, we need to be able to refer to “samples”.
 <p>If we have a tree sequence <code>ts</code>, we can get samples with <code>ts_samples()</code>:</p>
 <div class="columns">
 <div class="column" style="width:55%;">
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-26_39c7980ca52f7623d5c20376bda87766">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ts_samples</span>(ts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-26_39c7980ca52f7623d5c20376bda87766">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10,000 × 3
    name    time pop  
@@ -1339,10 +1342,10 @@ First, to analyze data, we need to be able to refer to “samples”.
 </div><div class="column" style="width:2%;">
 <p>&nbsp;</p>
 </div><div class="column" style="width:43%;">
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-27_db81dc09b76708cbdd01f576747cbf6a">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ts_samples</span>(ts) <span class="sc">%&gt;%</span> <span class="fu">count</span>(pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-27_db81dc09b76708cbdd01f576747cbf6a">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   pop       n
@@ -1356,7 +1359,7 @@ First, to analyze data, we need to be able to refer to “samples”.
 <section id="analyzing-tree-sequences-with-slendr" class="slide level2">
 <h2>Analyzing tree sequences with <em>slendr</em></h2>
 <p>Let’s say we have the following model and we simulate a tree sequence from it.</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-28_8d2cb7df7932e9757fae2b32eb9e7c84">
 <div class="sourceCode cell-code" id="cb37" data-code-line-numbers="|1|2|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>pop <span class="ot">&lt;-</span> <span class="fu">population</span>(<span class="st">"pop"</span>, <span class="at">N =</span> <span class="dv">10000</span>, <span class="at">time =</span> <span class="dv">1</span>)</span>
 <span id="cb37-2"><a href="#cb37-2"></a>model <span class="ot">&lt;-</span> <span class="fu">compile_model</span>(pop, <span class="at">generation_time =</span> <span class="dv">1</span>, <span class="at">simulation_length =</span> <span class="dv">10000</span>)</span>
 <span id="cb37-3"><a href="#cb37-3"></a></span>
@@ -1369,12 +1372,12 @@ First, to analyze data, we need to be able to refer to “samples”.
 </section>
 <section id="example-allele-frequency-spectrum" class="slide level2">
 <h2>Example: allele frequency spectrum</h2>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-29_97636a77a3b5d1cca0a6ed5e98e3aaa6">
 
 </div>
 <div class="columns">
 <div class="column" style="width:55%;">
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-30_e13ff240da2f777105558e50ecb39c12">
 <div class="sourceCode cell-code" id="cb38" data-code-line-numbers="|3-6|11-16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># sample 5 individuals</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a><span class="co"># (i.e. 10 chromosomes)</span></span>
 <span id="cb38-3"><a href="#cb38-3"></a>samples <span class="ot">&lt;-</span></span>
@@ -1394,15 +1397,15 @@ First, to analyze data, we need to be able to refer to “samples”.
 <span id="cb38-17"><a href="#cb38-17"></a></span>
 <span id="cb38-18"><a href="#cb38-18"></a>afs1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 39690.602 19943.189 13333.136 10150.936  7862.642  6833.199  5680.618
- [8]  4875.077  4426.764  4073.723</code></pre>
+<pre><code> [1] 40234.047 19994.011 13367.276  9650.953  8186.737  6474.954  5772.163
+ [8]  5000.117  4618.123  4149.917</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:2%;">
 <p>&nbsp;</p>
 </div><div class="column" style="width:43%;">
 <div class="fragment">
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-31_ffd9beef3f84907ed5be3d9d318a27c2">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(afs1, <span class="at">type =</span> <span class="st">"b"</span>,</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"allele count bin"</span>,</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1416,13 +1419,13 @@ First, to analyze data, we need to be able to refer to “samples”.
 </section>
 <section id="but-wait-we-dont-have-any-mutations" class="slide level2">
 <h2>But wait, we don’t have any mutations!</h2>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-32_889451e85c44e7f95933e8bc93918b33">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>ts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>╔═══════════════════════════╗
 ║TreeSequence               ║
 ╠═══════════════╤═══════════╣
-║Trees          │     391202║
+║Trees          │     393992║
 ╟───────────────┼───────────╢
 ║Sequence Length│  100000000║
 ╟───────────────┼───────────╢
@@ -1430,12 +1433,12 @@ First, to analyze data, we need to be able to refer to “samples”.
 ╟───────────────┼───────────╢
 ║Sample Nodes   │      20000║
 ╟───────────────┼───────────╢
-║Total Size     │   66.0 MiB║
+║Total Size     │   66.4 MiB║
 ╚═══════════════╧═══════════╝
 ╔═══════════╤═══════╤═════════╤════════════╗
 ║Table      │Rows   │Size     │Has Metadata║
 ╠═══════════╪═══════╪═════════╪════════════╣
-║Edges      │1522503│ 46.5 MiB│          No║
+║Edges      │1532308│ 46.8 MiB│          No║
 ╟───────────┼───────┼─────────┼────────────╢
 ║Individuals│  10000│273.5 KiB│          No║
 ╟───────────┼───────┼─────────┼────────────╢
@@ -1443,7 +1446,7 @@ First, to analyze data, we need to be able to refer to “samples”.
 ╟───────────┼───────┼─────────┼────────────╢
 ║Mutations  │      0│ 16 Bytes│          No║
 ╟───────────┼───────┼─────────┼────────────╢
-║Nodes      │ 286720│  7.7 MiB│          No║
+║Nodes      │ 288433│  7.7 MiB│          No║
 ╟───────────┼───────┼─────────┼────────────╢
 ║Populations│      1│222 Bytes│         Yes║
 ╟───────────┼───────┼─────────┼────────────╢
@@ -1478,7 +1481,7 @@ This means we can add mutations<br><em>after</em> the simulation.
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="fragment">
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-33_5f318df92e0fd35d825a2fbc7496efc3">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>ts_mutated <span class="ot">&lt;-</span> <span class="fu">ts_mutate</span>(</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  ts,</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mutation_rate =</span> <span class="fl">1e-8</span></span>
@@ -1487,7 +1490,7 @@ This means we can add mutations<br><em>after</em> the simulation.
 </div>
 <div class="fragment">
 <p>Or, with a shortcut:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-34_d479eb9fde6933c1c7e3c3b8e315b092">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>ts <span class="ot">&lt;-</span> <span class="fu">msprime</span>(</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  model,</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sequence_length =</span> <span class="fl">100e6</span>,</span>
@@ -1502,12 +1505,12 @@ This means we can add mutations<br><em>after</em> the simulation.
 <p>&nbsp;</p>
 </div><div class="column" style="width:59%;">
 <div class="fragment">
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-35_9bf99539e2be2a8a8ce5fcc67a8d5211">
 <div class="cell-output cell-output-stdout">
 <pre><code>╔═══════════════════════════╗
 ║TreeSequence               ║
 ╠═══════════════╤═══════════╣
-║Trees          │     391470║
+║Trees          │     392202║
 ╟───────────────┼───────────╢
 ║Sequence Length│  100000000║
 ╟───────────────┼───────────╢
@@ -1515,26 +1518,26 @@ This means we can add mutations<br><em>after</em> the simulation.
 ╟───────────────┼───────────╢
 ║Sample Nodes   │      20000║
 ╟───────────────┼───────────╢
-║Total Size     │   90.8 MiB║
+║Total Size     │   91.0 MiB║
 ╚═══════════════╧═══════════╝
 ╔═══════════╤═══════╤═════════╤════════════╗
 ║Table      │Rows   │Size     │Has Metadata║
 ╠═══════════╪═══════╪═════════╪════════════╣
-║Edges      │1523916│ 46.5 MiB│          No║
+║Edges      │1527049│ 46.6 MiB│          No║
 ╟───────────┼───────┼─────────┼────────────╢
 ║Individuals│  10000│273.5 KiB│          No║
 ╟───────────┼───────┼─────────┼────────────╢
 ║Migrations │      0│  8 Bytes│          No║
 ╟───────────┼───────┼─────────┼────────────╢
-║Mutations  │ 419097│ 14.8 MiB│          No║
+║Mutations  │ 419204│ 14.8 MiB│          No║
 ╟───────────┼───────┼─────────┼────────────╢
-║Nodes      │ 286542│  7.7 MiB│          No║
+║Nodes      │ 287455│  7.7 MiB│          No║
 ╟───────────┼───────┼─────────┼────────────╢
 ║Populations│      1│222 Bytes│         Yes║
 ╟───────────┼───────┼─────────┼────────────╢
 ║Provenances│      2│  2.1 KiB│          No║
 ╟───────────┼───────┼─────────┼────────────╢
-║Sites      │ 418225│ 10.0 MiB│          No║
+║Sites      │ 418329│ 10.0 MiB│          No║
 ╚═══════════╧═══════╧═════════╧════════════╝</code></pre>
 </div>
 </div>
@@ -1544,12 +1547,12 @@ This means we can add mutations<br><em>after</em> the simulation.
 </section>
 <section id="example-allele-frequency-spectrum-1" class="slide level2">
 <h2>Example: allele frequency spectrum</h2>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-36_73cf15c438f6fd60f23a79c1e6dce8ce">
 
 </div>
 <div class="columns">
 <div class="column" style="width:55%;">
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-37_4058973ce4af349913b54c48bcc081b5">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sample 5 individuals</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (i.e. 10 chromosomes)</span></span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span></span>
@@ -1567,14 +1570,14 @@ This means we can add mutations<br><em>after</em> the simulation.
 <span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>afs2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 39577 19996 13265  9802  8147  6606  5843  4933  4436  4156</code></pre>
+<pre><code> [1] 40163 19930 13137  9962  8137  6665  5549  5049  4240  3952</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:2%;">
 <p>&nbsp;</p>
 </div><div class="column" style="width:43%;">
 <div class="fragment">
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-38_6b3316896e7070b2008f3f6c60ee134d">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(afs2, <span class="at">type =</span> <span class="st">"b"</span>,</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"allele count bin"</span>,</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"frequency"</span>)</span>
@@ -1592,7 +1595,7 @@ This means we can add mutations<br><em>after</em> the simulation.
 <section>
 <section id="exercise-2" class="title-slide slide level1 center">
 <h1>Exercise #2</h1>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-39_75764ca78c9ec2d5de6043e4db7a3a49">
 
 </div>
 <p>Collaborator <a href="https://zelda.fandom.com/wiki/Hestu">Hestu</a> gave you AFS computed from 10 individuals of a sub-species of the <a href="https://www.zeldadungeon.net/wiki/Bushy-Tailed_Squirrel"><em>bushy-tailed squirrel</em></a> discovered in the Forest of Spirits in the land of Hyrule:</p>
@@ -1600,7 +1603,7 @@ This means we can add mutations<br><em>after</em> the simulation.
 <!-- #| echo: false -->
 <!-- dput(as.vector(observed_afs)) -->
 <!-- ``` -->
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-40_318dc2323ee072a8a7f46e2c7f029595">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>afs_observed <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2520</span>, <span class="dv">1449</span>, <span class="dv">855</span>, <span class="dv">622</span>, <span class="dv">530</span>, <span class="dv">446</span>, <span class="dv">365</span>, <span class="dv">334</span>, <span class="dv">349</span>, <span class="dv">244</span>, <span class="dv">264</span>, <span class="dv">218</span>, </span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="dv">133</span>, <span class="dv">173</span>, <span class="dv">159</span>, <span class="dv">142</span>, <span class="dv">167</span>, <span class="dv">129</span>, <span class="dv">125</span>, <span class="dv">143</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1646,13 +1649,13 @@ This means we can add mutations<br><em>after</em> the simulation.
 <h2>Gene flow events</h2>
 <p>Gene flow is programmed using the <code>gene_flow()</code> function.</p>
 <p>If we have populations <code>p1</code> and <code>p2</code>, we schedule gene flow with:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-41_72da1f10c1381d2b8612e0d9194e3230">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>gf <span class="ot">&lt;-</span> <span class="fu">gene_flow</span>(<span class="at">from =</span> p1, <span class="at">to =</span> p2, <span class="at">start =</span> <span class="dv">500</span>, <span class="at">end =</span> <span class="dv">600</span>, <span class="at">rate =</span> <span class="fl">0.13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><br></p>
 <p>Multiple gene-flow events can be gathered in a list:</p>
-<div class="cell">
+<div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-42_28512ca7664c1c4dbaf5305037ccce05">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>gf <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gene_flow</span>(<span class="at">from =</span> p1, <span class="at">to =</span> p2, <span class="at">start =</span> <span class="dv">500</span>, <span class="at">end =</span> <span class="dv">600</span>, <span class="at">rate =</span> <span class="fl">0.13</span>),</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gene_flow</span>(<span class="at">from =</span> <span class="sc">&lt;</span>..<span class="sc">&gt;</span>, <span class="at">to =</span> <span class="sc">&lt;</span>..<span class="sc">&gt;</span>, <span class="at">start =</span> <span class="sc">&lt;</span>...<span class="sc">&gt;</span>, <span class="at">end =</span> <span class="sc">&lt;</span>...<span class="sc">&gt;</span>, <span class="at">rate =</span> <span class="sc">&lt;</span>...<span class="sc">&gt;</span>)</span>
@@ -1675,7 +1678,7 @@ This means we can add mutations<br><em>after</em> the simulation.
 </section>
 <section id="lets-build-another-toy-model" class="slide level2">
 <h2>Let’s build another toy model</h2>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-43_281e9052cc6c3fdce46e0981684d677e">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>o <span class="ot">&lt;-</span> <span class="fu">population</span>(<span class="st">"o"</span>, <span class="at">time =</span> <span class="dv">1</span>, <span class="at">N =</span> <span class="dv">100</span>)</span>
@@ -1699,7 +1702,7 @@ This means we can add mutations<br><em>after</em> the simulation.
 </details>
 
 </div>
-<img data-src="mpieva-slendr-2023_files/figure-revealjs/unnamed-chunk-43-1.png" width="672" class="r-stretch quarto-figure-center"><div class="cell">
+<img data-src="mpieva-slendr-2023_files/figure-revealjs/unnamed-chunk-43-1.png" width="672" class="r-stretch quarto-figure-center"><div class="cell" data-hash="mpieva-slendr-2023_cache/revealjs/unnamed-chunk-44_59e1a1e66676420c11be7522d7cc80bf">
 
 </div>
 <div class="footer footer-default">
