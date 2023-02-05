@@ -5,17 +5,17 @@ author: "Martin Petr"
 date: "February 2023"
 date-format: "MMMM YYYY"
 format:
-  revealjs:
-    eval: true
-    echo: true
-    code-line-numbers: false
-    fig-align: center
-    slide-number: true
-  # html:
+  # revealjs:
   #   eval: true
   #   echo: true
   #   code-line-numbers: false
   #   fig-align: center
+  #   slide-number: true
+  html:
+    eval: true
+    echo: true
+    code-line-numbers: false
+    fig-align: center
 # execute:
 #   cache: true
 ---
@@ -717,7 +717,7 @@ t_phylo <- ts_phylo(ts_tiny, 1, quiet = TRUE)
 t_tskit <- ts_tree(ts_tiny, 1)
 
 # plot the phylo tree with ape
-library(ggtree)
+suppressPackageStartupMessages(library(ggtree))
 nodes <- ts_nodes(t_phylo) %>% as_tibble %>% dplyr::select(node = phylo_id, pop, node_id)
 ggtree(t_phylo) %<+% nodes +
   geom_label(aes(label = node_id), size = 15) + 
@@ -1410,7 +1410,7 @@ Hint: You can compute Neanderthal ancestry for a vector of individuals `X` as `t
 
 ## Conversion to other genotype formats
 
-If you have a tree-sequence object `ts`...
+If you have a tree-sequence object `ts`, you can do...
 
 . . .
 
@@ -1434,5 +1434,6 @@ ts <- ts_simplify(ts, simplify_to = c("EUR_1", "EUR_2", "AFR_1"))
 ```
 
 ```{r}
+#| output-location: fragment
 ts_genotypes(ts)
 ```
