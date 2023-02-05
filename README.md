@@ -6,7 +6,7 @@
 
 ------------------------------------------------------------------------
 
-This README summarizes steps needed to set up your machine for the lecture and exercises. After you're done installing everything, make sure to run a small testing simulation (code below) to know that everything works as needed.
+This README describes how to set up your machine for the practical workshop. After you're done installing everything, make sure to run a small testing simulation ([here](#testing-the-setup)) to make sure that everything works as needed.
 
 ------------------------------------------------------------------------
 
