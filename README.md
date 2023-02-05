@@ -1,8 +1,8 @@
 # *slendr* simulation workshop at MPI EVA (2023)
 
-### You can find the slides [here]().
+### You can find the slides [here](https://quartopub.com/sites/979368fd-4892-4010-8a6d-a3bf8563ac99).
 
-### [Here]() is a render of the slides as a single HTML page (easier for quick reading).
+### [Here](https://quartopub.com/sites/99c8c3a2-8c9e-40ea-851f-c467e8759ba8) is a render of the slides as a single HTML page (easier for reference).
 
 ------------------------------------------------------------------------
 
