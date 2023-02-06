@@ -5,17 +5,17 @@ author: "Martin Petr"
 date: "February 2023"
 date-format: "MMMM YYYY"
 format:
-  # revealjs:
-  #   eval: true
-  #   echo: true
-  #   code-line-numbers: false
-  #   fig-align: center
-  #   slide-number: true
-  html:
+  revealjs:
     eval: true
     echo: true
     code-line-numbers: false
     fig-align: center
+    slide-number: true
+  # html:
+  #   eval: true
+  #   echo: true
+  #   code-line-numbers: false
+  #   fig-align: center
 # execute:
 #   cache: true
 ---
