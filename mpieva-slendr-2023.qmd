@@ -5,17 +5,17 @@ author: "Martin Petr"
 date: "February 2023"
 date-format: "MMMM YYYY"
 format:
-  revealjs:
-    eval: true
-    echo: true
-    code-line-numbers: false
-    fig-align: center
-    slide-number: true
-  # html:
+  # revealjs:
   #   eval: true
   #   echo: true
   #   code-line-numbers: false
   #   fig-align: center
+  #   slide-number: true
+  html:
+    eval: true
+    echo: true
+    code-line-numbers: false
+    fig-align: center
 # execute:
 #   cache: true
 ---
@@ -542,15 +542,7 @@ Tree sequences make it possible to directly compute many quantities of interest 
 [Ralph et al. (2020)](https://academic.oup.com/genetics/article/215/3/779/5930459)
 :::
 
-## We don't even *need* mutations!
-
-```{r}
-#| output-location: fragment
-ts <- msprime(model, sequence_length = 1e6, recombination_rate = 1e-8)
-ts
-```
-
-## How can we compute statistics?
+## How can we compute statistics without mutations?
 
 There is a duality between mutations and branch lengths in trees (more [here](https://tskit.dev/tskit/docs/stable/stats.html)).
 
