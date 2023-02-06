@@ -83,7 +83,7 @@ I will use some tidyverse packages for analysis and plotting.
 
 I recommend you install the following packages:
 
-    install.packages(c("dplyr", "ggplot2", "cowplot", "magrittr", "MASS"))
+    install.packages(c("dplyr", "ggplot2", "cowplot", "magrittr"))
 
 # Python+RStudio issue
 
