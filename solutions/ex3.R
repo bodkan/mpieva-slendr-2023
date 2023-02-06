@@ -6,11 +6,12 @@ afr <- population("AFR", parent = chimp, time = 6e6, N = 15000)
 eur <- population("EUR", parent = afr, time = 70e3, N = 3000)
 nea <- population("NEA", parent = afr, time = 600e3, N = 1000, remove = 40e3)
 
+# this is a thing we added to the base model without gene flow
 gf <- gene_flow(from = nea, to = eur, rate = 0.03, start = 50000, end = 40000)
 
 model <- compile_model(
   populations = list(chimp, nea, afr, eur),
-  gene_flow = gf,
+  gene_flow = gf,                            # <--- we need to compile this too
   generation_time = 30
 )
 

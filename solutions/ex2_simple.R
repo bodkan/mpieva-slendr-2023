@@ -4,9 +4,9 @@ init_env()
 simulate_afs <- function(Ne) {
   # create a slendr model with a given N size
   pop <- population("pop", N = Ne, time = 1)
-  model <- compile_model(pop, generation_time = 1, simulation_length = 10000)
+  model <- compile_model(pop, generation_time = 1, simulation_length = 100000)
   
-  # simulate genomes
+  # simulate a tree sequence
   ts <-
     msprime(model, sequence_length = 10e6, recombination_rate = 1e-8) %>%
     ts_mutate(mutation_rate = 1e-8)

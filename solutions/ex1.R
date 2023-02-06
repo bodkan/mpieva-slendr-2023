@@ -1,6 +1,7 @@
 library(slendr)
 init_env()
 
+# chimpanzee outgroup
 chimp <- population("CHIMP", time = 7e6, N = 5000)
 
 # two populations of anatomically modern humans: Africans and Europeans
@@ -36,5 +37,3 @@ model <- compile_model(
 )
 
 list.files(model_dir)
-
-ts <- msprime(model, sequence_length = 1e6, recombination_rate = 0)

@@ -16,14 +16,12 @@ model <- compile_model(
   generation_time = 30
 )
 
-# verify visually
 plot_model(model, sizes = FALSE, proportions = TRUE)
 plot_model(model, sizes = FALSE, log = TRUE, proportions = TRUE)
 
 ts <-
-  msprime(model, sequence_length = 100e6, recombination_rate = 1e-8) %>%
+  msprime(model, sequence_length = 20e6, recombination_rate = 1e-8) %>%
   ts_mutate(mutation_rate = 1e-8)
-
 ts
 
 
@@ -49,7 +47,10 @@ arrange(div, desc(divergence))
 
 ts_f3(ts, A = "AFR_1", B = "EUR_1", C = "CHIMP_1")
 
+samples$AFR
+samples$EUR
 ts_f3(ts, A = samples$AFR, B = samples$EUR, C = "CHIMP_1")
+
 
 ts_f3(ts, A = list(afr = samples$AFR), B = list(eur = samples$EUR), C = "CHIMP_1")
 
@@ -64,8 +65,8 @@ ts_f4(ts, W = "AFR_1", X = "AFR_2", Y = "NEA_1", Z = "CHIMP_1")
 
 ts_f4(ts, W = "AFR_1", X = "EUR_1", Y = "NEA_1", Z = "CHIMP_1")
 
-afr_samples <- samples$AFR %>% sample(50)
-eur_samples <- samples$EUR %>% sample(50)
+afr_samples <- samples$AFR %>% sample(25)
+eur_samples <- samples$EUR %>% sample(25)
 
 f4_afr <- lapply(afr_samples, function(x) ts_f4(ts, W = "AFR_1", X = x, Y = "NEA_1", Z = "CHIMP_1")) %>% bind_rows()
 f4_eur <- lapply(eur_samples, function(x) ts_f4(ts, W = "AFR_1", X = x, Y = "NEA_1", Z = "CHIMP_1")) %>% bind_rows()

@@ -4,7 +4,6 @@ library(ggplot2)
 library(slendr)
 init_env()
 
-
 chimp <- population("CHIMP", time = 7e6, N = 5000)
 afr <- population("AFR", parent = chimp, time = 6e6, N = 15000)
 eur <- population("EUR", parent = afr, time = 70e3, N = 3000)
@@ -17,7 +16,6 @@ model <- compile_model(
   gene_flow = gf,
   generation_time = 30
 )
-
 
 nea_samples <- schedule_sampling(model, times = c(70000, 40000), list(nea, 1))
 
@@ -33,7 +31,9 @@ ts <-
     recombination_rate = 1e-8
   ) %>%
   ts_mutate(mutation_rate = 1e-8)
+#ts_save(ts, "data/ex5.trees")
 
+ts <- ts_load("data/ex5.trees", model)
 ts
 
 # extract table with names and times of sampled Europeans (ancient and present day)
@@ -44,11 +44,10 @@ eur_inds
 nea_ancestry <- ts_f4ratio(ts, X = eur_inds$name, "NEA_1", "NEA_2", "AFR_1", "CHIMP_1")
 nea_ancestry
 
-eur_inds$ancestry <- nea_ancestry$alpha
-
 eur_inds %>%
+  mutate(ancestry = nea_ancestry$alpha) %>%
   ggplot(aes(time, ancestry)) +
-  geom_point() +
-  geom_smooth(method = "lm", linetype = 2, color = "red", linewidth = 0.5) +
-  xlim(40000, 0) + coord_cartesian(ylim = c(0, 0.1)) +
-  labs(x = "time [years ago]", y = "Neanderthal ancestry proportion")
+    geom_point() +
+    geom_smooth(method = "lm", linetype = 2, color = "red", linewidth = 0.5) +
+    xlim(40000, 0) + coord_cartesian(ylim = c(0, 0.1)) +
+    labs(x = "time [years ago]", y = "Neanderthal ancestry proportion")
