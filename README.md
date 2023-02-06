@@ -50,8 +50,12 @@ Finally, make sure you get a positive confirmation from the following check:
 
 Copy the following script to your R session after you successfully installed your R dependencies as described above.
 
+First run this:
+
     library(slendr)
     init_env()
+
+Followed by this:
 
     o <- population("outgroup", time = 1, N = 100)
     b <- population("b", parent = o, time = 500, N = 100)
