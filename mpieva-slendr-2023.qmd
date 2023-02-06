@@ -809,7 +809,6 @@ set.seed(42)
 ::: columns
 ::: {.column width="40%"}
 ```{r}
-#| code-line-numbers: "1-5|7-11|13"
 #| output-location: fragment
 # sample 5 individuals
 samples <-
@@ -817,6 +816,12 @@ samples <-
   sample_n(5) %>%
   pull(name)
 
+samples
+```
+
+::: {.fragment}
+```{r}
+#| output-location: fragment
 # compute the AFS
 afs <- ts_afs(
   ts, list(samples),
@@ -825,6 +830,8 @@ afs <- ts_afs(
 
 afs
 ```
+:::
+
 :::
 
 ::: {.column width="2%"}
@@ -1182,7 +1189,7 @@ plot_model(model)
 
 ## Exercise #5a --- ancient samples
 
-Simulate data using this sampling schedule:
+Simulate data from your model using this sampling:
 
 -   one present-day CHIMP and AFR individual
 -   20 present-day EUR individuals
