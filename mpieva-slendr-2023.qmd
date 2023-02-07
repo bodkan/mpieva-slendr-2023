@@ -592,7 +592,6 @@ ts <-
 Let's take this minimalistic model:
 
 ```{r}
-#| eval: false
 pop <- population("pop", time = 1e6, N = 10000)
 model <- compile_model(pop, generation_time = 30, direction = "backward")
 ts <- msprime(model, sequence_length = 1e6, recombination_rate = 1e-8)
@@ -723,6 +722,30 @@ ts <- msprime(model, sequence_length = 1e6, recombination_rate = 1e-8)
 <br>
 
 <center>(A tree sequence can be saved to disk with `ts_save()`.)</center>
+
+## Conversion to other genotype formats
+
+If you have a tree-sequence object `ts`, you can do...
+
+```{r}
+#| eval: false
+ts_vcf(ts, path = "path/to/a/file.vcf.gz")
+```
+
+```{r}
+#| eval: false
+ts_eigenstrat(ts, prefix = "path/to/eigenstrat/prefix")
+```
+
+```{r}
+#| echo: false
+ts <- ts_simplify(ts, simplify_to = c("pop_1", "pop_2", "pop_3")) %>% ts_mutate(mutation_rate = 1e-8)
+```
+
+```{r}
+#| output-location: fragment
+ts_genotypes(ts)
+```
 
 # What can we do with it?
 
