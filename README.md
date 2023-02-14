@@ -1,4 +1,4 @@
-# *slendr* simulation workshop at MPI EVA (2023)
+# *slendr* simulation workshop at [MPI EVA](https://www.eva.mpg.de/index/) (2023)
 
 ### You can find the slides [here](https://quartopub.com/sites/979368fd-4892-4010-8a6d-a3bf8563ac99).
 
