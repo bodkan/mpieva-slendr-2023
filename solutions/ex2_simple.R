@@ -4,7 +4,8 @@ init_env()
 simulate_afs <- function(Ne) {
   # create a slendr model with a given N size
   pop <- population("pop", N = Ne, time = 1)
-  model <- compile_model(pop, generation_time = 1, simulation_length = 100000)
+  model <- compile_model(pop, generation_time = 1,
+                         simulation_length = 100000)
   
   # simulate a tree sequence
   ts <-
@@ -12,7 +13,9 @@ simulate_afs <- function(Ne) {
     ts_mutate(mutation_rate = 1e-8)
   
   # get a random sample of names of 10 individuals
-  samples <- ts_samples(ts) %>% dplyr::sample_n(10) %>% dplyr::pull(name)
+  samples <- ts_samples(ts) %>%
+    dplyr::sample_n(10) %>%
+    dplyr::pull(name)
   
   # compute the AFS vector
   afs <- ts_afs(ts, list(samples), polarised = TRUE)

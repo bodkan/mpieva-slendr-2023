@@ -17,18 +17,20 @@ model <- compile_model(
 )
 
 plot_model(model, sizes = FALSE, proportions = TRUE)
-plot_model(model, sizes = FALSE, log = TRUE, proportions = TRUE)
+plot_model(model, log = TRUE, proportions = TRUE)
 
 ts <-
-  msprime(model, sequence_length = 20e6, recombination_rate = 1e-8) %>%
+  msprime(model, sequence_length = 100e6, recombination_rate = 1e-8) %>%
   ts_mutate(mutation_rate = 1e-8)
 ts
 
 
 # extract samples as a list of names --------------------------------------
 
-samples <- ts_samples(ts) %>% split(., .$pop) %>% lapply(pull, "name")
-
+samples <- ts_samples(ts) %>%
+  split(., .$pop) %>%
+  lapply(pull, "name")
+samples
 
 # compute diversity -------------------------------------------------------
 

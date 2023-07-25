@@ -37,3 +37,16 @@ model <- compile_model(
 )
 
 list.files(model_dir)
+
+
+
+
+
+
+
+
+
+
+
+
+

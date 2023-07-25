@@ -17,10 +17,10 @@ model <- compile_model(
   generation_time = 30
 )
 
+plot_model(model)
+
 nea_samples <- schedule_sampling(model, times = c(70000, 40000), list(nea, 1))
-
 present_samples <- schedule_sampling(model, times = 0, list(chimp, 1), list(afr, 5), list(eur, 10))
-
 emh_samples <- schedule_sampling(model, times = runif(n = 40, min = 10000, max = 40000), list(eur, 1))
 
 ts <-
@@ -36,6 +36,8 @@ ts <-
 ts <- ts_load("data/ex5.trees", model)
 ts
 
+
+
 # extract table with names and times of sampled Europeans (ancient and present day)
 eur_inds <- ts_samples(ts) %>% filter(pop == "EUR")
 eur_inds
@@ -44,8 +46,9 @@ eur_inds
 nea_ancestry <- ts_f4ratio(ts, X = eur_inds$name, "NEA_1", "NEA_2", "AFR_1", "CHIMP_1")
 nea_ancestry
 
+eur_inds$ancestry <- nea_ancestry$alpha
+
 eur_inds %>%
-  mutate(ancestry = nea_ancestry$alpha) %>%
   ggplot(aes(time, ancestry)) +
     geom_point() +
     geom_smooth(method = "lm", linetype = 2, color = "red", linewidth = 0.5) +

@@ -911,7 +911,7 @@ time direction: forward
 total running length: 3000 model time units
 model type: non-spatial
 
-configuration files in: /private/var/folders/d_/hblb15pd3b94rg0v35920wd80000gn/T/RtmpRQqBY1/file17efa7a4c1c58 </code></pre>
+configuration files in: /private/var/folders/d_/hblb15pd3b94rg0v35920wd80000gn/T/RtmpmRWkEV/file33b924deedc </code></pre>
 </div>
 </div>
 </section>
@@ -1204,20 +1204,20 @@ We will be using <code>ts_mutate()</code> throughout.
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 903 × 7
+<pre><code># A tibble: 915 × 7
      pos pop_1_chr1 pop_1_chr2 pop_2_chr1 pop_2_chr2 pop_3_chr1 pop_3_chr2
    &lt;int&gt;      &lt;int&gt;      &lt;int&gt;      &lt;int&gt;      &lt;int&gt;      &lt;int&gt;      &lt;int&gt;
- 1  3797          0          0          0          1          0          0
- 2  4263          1          1          1          0          1          1
- 3  4401          0          0          0          1          0          0
- 4  7390          0          0          1          1          0          1
- 5  7860          1          1          0          0          1          0
- 6  8745          0          0          1          0          0          0
- 7 10967          0          0          1          1          0          0
- 8 11285          0          0          1          1          0          0
- 9 14053          1          1          0          0          1          1
-10 14364          1          1          0          1          1          1
-# … with 893 more rows</code></pre>
+ 1   525          0          1          1          1          0          1
+ 2  1668          1          0          0          0          1          0
+ 3  3457          0          0          0          0          1          0
+ 4  4139          0          0          0          1          0          0
+ 5 11316          0          0          0          1          0          0
+ 6 11329          0          0          0          1          0          0
+ 7 12740          1          1          1          0          1          1
+ 8 15055          0          0          0          1          0          0
+ 9 15394          1          0          0          0          1          0
+10 16423          0          0          0          1          0          0
+# … with 905 more rows</code></pre>
 </div>
 </div>
 </section></section>
@@ -1324,7 +1324,7 @@ We will be using <code>ts_mutate()</code> throughout.
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 39122 19832 13689  9903  7830  6738  5656  4787  4450  4029</code></pre>
+<pre><code> [1] 40272 19362 13249 10066  7951  6744  5652  4945  4484  3923</code></pre>
 </div>
 </div>
 </div>
@@ -1532,11 +1532,125 @@ We will be using <code>ts_mutate()</code> throughout.
 </div>
 </div>
 </section></section>
+<section>
 <section id="exercise-4-solution" class="title-slide slide level1 center">
 <h1>Exercise #4 — solution</h1>
-
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|echo: false</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(slendr)</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">init_env</span>()</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>chimp <span class="ot">&lt;-</span> <span class="fu">population</span>(<span class="st">"CHIMP"</span>, <span class="at">time =</span> <span class="fl">7e6</span>, <span class="at">N =</span> <span class="dv">5000</span>)</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>afr <span class="ot">&lt;-</span> <span class="fu">population</span>(<span class="st">"AFR"</span>, <span class="at">parent =</span> chimp, <span class="at">time =</span> <span class="fl">6e6</span>, <span class="at">N =</span> <span class="dv">15000</span>)</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>eur <span class="ot">&lt;-</span> <span class="fu">population</span>(<span class="st">"EUR"</span>, <span class="at">parent =</span> afr, <span class="at">time =</span> <span class="fl">70e3</span>, <span class="at">N =</span> <span class="dv">3000</span>)</span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>nea <span class="ot">&lt;-</span> <span class="fu">population</span>(<span class="st">"NEA"</span>, <span class="at">parent =</span> afr, <span class="at">time =</span> <span class="fl">600e3</span>, <span class="at">N =</span> <span class="dv">1000</span>, <span class="at">remove =</span> <span class="fl">40e3</span>)</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>gf <span class="ot">&lt;-</span> <span class="fu">gene_flow</span>(<span class="at">from =</span> nea, <span class="at">to =</span> eur, <span class="at">rate =</span> <span class="fl">0.05</span>, <span class="at">start =</span> <span class="dv">50000</span>, <span class="at">end =</span> <span class="dv">40000</span>)</span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">compile_model</span>(</span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">populations =</span> <span class="fu">list</span>(chimp, nea, afr, eur),</span>
+<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">gene_flow =</span> gf,</span>
+<span id="cb54-15"><a href="#cb54-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">generation_time =</span> <span class="dv">30</span></span>
+<span id="cb54-16"><a href="#cb54-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb54-17"><a href="#cb54-17" aria-hidden="true" tabindex="-1"></a>ts <span class="ot">&lt;-</span></span>
+<span id="cb54-18"><a href="#cb54-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">msprime</span>(model, <span class="at">sequence_length =</span> <span class="fl">100e6</span>, <span class="at">recombination_rate =</span> <span class="fl">1e-8</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb54-19"><a href="#cb54-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ts_mutate</span>(<span class="at">mutation_rate =</span> <span class="fl">1e-8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
+<section id="diversity" class="slide level2">
+<h2>Diversity</h2>
+<p>Get a list of named individuals in each population:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">ts_samples</span>(ts) <span class="sc">%&gt;%</span> <span class="fu">split</span>(., .<span class="sc">$</span>pop) <span class="sc">%&gt;%</span> <span class="fu">lapply</span>(pull, <span class="st">"name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>pi <span class="ot">&lt;-</span> <span class="fu">ts_diversity</span>(ts, <span class="at">sample_sets =</span> samples)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(pi, diversity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  set   diversity
+  &lt;chr&gt;     &lt;dbl&gt;
+1 NEA   0.0000412
+2 CHIMP 0.000202 
+3 EUR   0.000475 
+4 AFR   0.000601 </code></pre>
+</div>
+</div>
+</section>
+<section id="divergence" class="slide level2">
+<h2>Divergence</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>div <span class="ot">&lt;-</span> <span class="fu">ts_divergence</span>(ts, <span class="at">sample_sets =</span> samples)</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(div, <span class="fu">desc</span>(divergence))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  x     y     divergence
+  &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;
+1 AFR   CHIMP   0.00419 
+2 CHIMP EUR     0.00419 
+3 CHIMP NEA     0.00419 
+4 AFR   NEA     0.00100 
+5 EUR   NEA     0.000965
+6 AFR   EUR     0.000660</code></pre>
+</div>
+</div>
+</section>
+<section id="outgroup-f_3-statistic" class="slide level2">
+<h2>Outgroup <span class="math inline">\(f_3\)</span>-statistic</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A = Africans, B = Europeans, C = outgroup</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ts_f3</span>(ts, <span class="at">A =</span> <span class="fu">list</span>(<span class="at">afr =</span> samples<span class="sc">$</span>AFR), <span class="at">B =</span> <span class="fu">list</span>(<span class="at">eur =</span> samples<span class="sc">$</span>EUR), <span class="at">C =</span> <span class="st">"CHIMP_1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  A     B     C              f3
+  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;
+1 afr   eur   CHIMP_1 0.0000308</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A = Africans, B = Neanderthals, C = outgroup</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ts_f3</span>(ts, <span class="at">A =</span> <span class="fu">list</span>(<span class="at">afr =</span> samples<span class="sc">$</span>AFR), <span class="at">B =</span> <span class="fu">list</span>(<span class="at">nea =</span> samples<span class="sc">$</span>NEA), <span class="at">C =</span> <span class="st">"CHIMP_1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  A     B     C             f3
+  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;
+1 afr   nea   CHIMP_1 0.000205</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A = Europeans, B = Neanderthals, C = outgroup</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ts_f3</span>(ts, <span class="at">A =</span> <span class="fu">list</span>(<span class="at">eur =</span> samples<span class="sc">$</span>EUR), <span class="at">B =</span> <span class="fu">list</span>(<span class="at">nea =</span> samples<span class="sc">$</span>NEA), <span class="at">C =</span> <span class="st">"CHIMP_1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  A     B     C             f3
+  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;
+1 eur   nea   CHIMP_1 0.000248</code></pre>
+</div>
+</div>
+</section>
+<section id="f_4-statistic" class="slide level2">
+<h2><span class="math inline">\(f_4\)</span>-statistic</h2>
+<p><code>f4(AFR_1, X; NEA, CH)</code> is “almost zero” for <code>X = AFR</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ts_f4</span>(ts, <span class="at">W =</span> <span class="st">"AFR_1"</span>, <span class="at">X =</span> <span class="st">"AFR_2"</span>, <span class="at">Y =</span> <span class="st">"NEA_1"</span>, <span class="at">Z =</span> <span class="st">"CHIMP_1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+  W     X     Y     Z                f4
+  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;
+1 AFR_1 AFR_2 NEA_1 CHIMP_1 -0.00000125</code></pre>
+</div>
+</div>
+<p><code>f4(AFR, X; NEA, CH)</code> is “signif. negative” for <code>X = EUR</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ts_f4</span>(ts, <span class="at">W =</span> <span class="st">"AFR_1"</span>, <span class="at">X =</span> <span class="st">"EUR_1"</span>, <span class="at">Y =</span> <span class="st">"NEA_1"</span>, <span class="at">Z =</span> <span class="st">"CHIMP_1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+  W     X     Y     Z               f4
+  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt;
+1 AFR_1 EUR_1 NEA_1 CHIMP_1 -0.0000189</code></pre>
+</div>
+</div>
+</section>
+<section id="f_4-statistic-for-all-samples" class="slide level2">
+<h2><span class="math inline">\(f_4\)</span>-statistic for all samples</h2>
 
+<img data-src="mpieva-slendr-2023_files/figure-revealjs/unnamed-chunk-60-1.png" width="960" class="r-stretch"></section></section>
 <section>
 <section id="time-series-data" class="title-slide slide level1 center">
 <h1>Time-series data</h1>
@@ -1549,20 +1663,20 @@ We will be using <code>ts_mutate()</code> throughout.
 <p><br></p>
 <p>To record <em>ancient</em> individuals in the tree sequence, we can use <code>schedule_sampling()</code> like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">schedule_sampling</span>(</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  model,                <span class="co"># compiled slendr model object</span></span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">500</span>),  <span class="co"># at these times (can be also a single number) ...</span></span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(pop1, <span class="dv">42</span>),       <span class="co"># ... sample 42 individuals from pop1</span></span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(pop2, <span class="dv">10</span>),       <span class="co"># ... sample 10 individuals from pop2</span></span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(pop3, <span class="dv">1</span>)         <span class="co"># ... sample 1 individual from pop 3</span></span>
-<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">schedule_sampling</span>(</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  model,                <span class="co"># compiled slendr model object</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">500</span>),  <span class="co"># at these times (can be also a single number) ...</span></span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(pop1, <span class="dv">42</span>),       <span class="co"># ... sample 42 individuals from pop1</span></span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(pop2, <span class="dv">10</span>),       <span class="co"># ... sample 10 individuals from pop2</span></span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(pop3, <span class="dv">1</span>)         <span class="co"># ... sample 1 individual from pop 3</span></span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="sampling-schedule-format" class="slide level2">
 <h2>Sampling schedule format</h2>
 <p>The output of <code>schedule_sampling()</code> is a plain data frame:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">schedule_sampling</span>(model, <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">40000</span>, <span class="dv">30000</span>, <span class="dv">20000</span>, <span class="dv">10000</span>), <span class="fu">list</span>(eur, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">schedule_sampling</span>(model, <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">40000</span>, <span class="dv">30000</span>, <span class="dv">20000</span>, <span class="dv">10000</span>), <span class="fu">list</span>(eur, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 7
    time pop       n y_orig x_orig y     x    
@@ -1576,10 +1690,10 @@ We will be using <code>ts_mutate()</code> throughout.
 <div class="fragment">
 <p>We can bind multiple sampling schedules together, giving us finer control about sampling:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>eur_samples <span class="ot">&lt;-</span> <span class="fu">schedule_sampling</span>(model, <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">40000</span>, <span class="dv">30000</span>, <span class="dv">20000</span>, <span class="dv">10000</span>, <span class="dv">0</span>), <span class="fu">list</span>(eur, <span class="dv">1</span>))</span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>afr_samples <span class="ot">&lt;-</span> <span class="fu">schedule_sampling</span>(model, <span class="at">times =</span> <span class="dv">0</span>, <span class="fu">list</span>(afr, <span class="dv">1</span>))</span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(eur_samples, afr_samples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>eur_samples <span class="ot">&lt;-</span> <span class="fu">schedule_sampling</span>(model, <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">40000</span>, <span class="dv">30000</span>, <span class="dv">20000</span>, <span class="dv">10000</span>, <span class="dv">0</span>), <span class="fu">list</span>(eur, <span class="dv">1</span>))</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>afr_samples <span class="ot">&lt;-</span> <span class="fu">schedule_sampling</span>(model, <span class="at">times =</span> <span class="dv">0</span>, <span class="fu">list</span>(afr, <span class="dv">1</span>))</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(eur_samples, afr_samples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1587,15 +1701,15 @@ We will be using <code>ts_mutate()</code> throughout.
 <h2>How to use a sampling schedule?</h2>
 <p>To sample individuals based on a given schedule, we use the <code>samples =</code> argument of the <code>msprime()</code> functions:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>ts <span class="ot">&lt;-</span> <span class="fu">msprime</span>(model, <span class="at">samples =</span> samples, <span class="at">sequence_length =</span> <span class="fl">1e6</span>, <span class="at">recombination_rate =</span> <span class="fl">1e-8</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ts_mutate</span>(<span class="at">mutation_rate =</span> <span class="fl">1e-8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>ts <span class="ot">&lt;-</span> <span class="fu">msprime</span>(model, <span class="at">samples =</span> samples, <span class="at">sequence_length =</span> <span class="fl">1e6</span>, <span class="at">recombination_rate =</span> <span class="fl">1e-8</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ts_mutate</span>(<span class="at">mutation_rate =</span> <span class="fl">1e-8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>We can verify that only specific individuals are recorded:</p>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ts_samples</span>(ts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ts_samples</span>(ts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   name   time pop  
@@ -1611,12 +1725,12 @@ We will be using <code>ts_mutate()</code> throughout.
 </div><div class="column" style="width:60%;">
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>ts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>ts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>╔═══════════════════════════╗
 ║TreeSequence               ║
 ╠═══════════════╤═══════════╣
-║Trees          │       1419║
+║Trees          │       1235║
 ╟───────────────┼───────────╢
 ║Sequence Length│    1000000║
 ╟───────────────┼───────────╢
@@ -1624,26 +1738,26 @@ We will be using <code>ts_mutate()</code> throughout.
 ╟───────────────┼───────────╢
 ║Sample Nodes   │         12║
 ╟───────────────┼───────────╢
-║Total Size     │  313.6 KiB║
+║Total Size     │  281.5 KiB║
 ╚═══════════════╧═══════════╝
 ╔═══════════╤════╤═════════╤════════════╗
 ║Table      │Rows│Size     │Has Metadata║
 ╠═══════════╪════╪═════════╪════════════╣
-║Edges      │4330│135.3 KiB│          No║
+║Edges      │3804│118.9 KiB│          No║
 ╟───────────┼────┼─────────┼────────────╢
 ║Individuals│   6│192 Bytes│          No║
 ╟───────────┼────┼─────────┼────────────╢
 ║Migrations │   0│  8 Bytes│          No║
 ╟───────────┼────┼─────────┼────────────╢
-║Mutations  │1871│ 67.6 KiB│          No║
+║Mutations  │1731│ 62.6 KiB│          No║
 ╟───────────┼────┼─────────┼────────────╢
-║Nodes      │ 973│ 26.6 KiB│          No║
+║Nodes      │ 860│ 23.5 KiB│          No║
 ╟───────────┼────┼─────────┼────────────╢
 ║Populations│   4│341 Bytes│         Yes║
 ╟───────────┼────┼─────────┼────────────╢
 ║Provenances│   2│  3.5 KiB│          No║
 ╟───────────┼────┼─────────┼────────────╢
-║Sites      │1870│ 45.7 KiB│          No║
+║Sites      │1730│ 42.3 KiB│          No║
 ╚═══════════╧════╧═════════╧════════════╝</code></pre>
 </div>
 </div>
@@ -1660,7 +1774,7 @@ We will be using <code>ts_mutate()</code> throughout.
 <section id="exercise-5a-ancient-samples" class="slide level2">
 <h2>Exercise #5a — ancient samples</h2>
 
-<img data-src="mpieva-slendr-2023_files/figure-revealjs/unnamed-chunk-59-1.png" width="960" class="r-stretch"></section>
+<img data-src="mpieva-slendr-2023_files/figure-revealjs/unnamed-chunk-67-1.png" width="960" class="r-stretch"></section>
 <section id="exercise-5a-ancient-samples-1" class="slide level2">
 <h2>Exercise #5a — ancient samples</h2>
 <p>Simulate data from your model using this sampling:</p>
@@ -1672,11 +1786,11 @@ We will be using <code>ts_mutate()</code> throughout.
 </ul>
 <p>Reminder: you can do this by:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="co"># rbind(...) together individual schedule_sampling() data frames</span></span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>ts <span class="ot">&lt;-</span></span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">msprime</span>(model, <span class="at">samples =</span> samples, <span class="at">sequence_length =</span> <span class="fl">100e6</span>, <span class="at">recombination_rate =</span> <span class="fl">1e-8</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ts_mutate</span>(<span class="at">mutation_rate =</span> <span class="fl">1e-8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="co"># rbind(...) together individual schedule_sampling() data frames</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>ts <span class="ot">&lt;-</span></span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">msprime</span>(model, <span class="at">samples =</span> samples, <span class="at">sequence_length =</span> <span class="fl">100e6</span>, <span class="at">recombination_rate =</span> <span class="fl">1e-8</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ts_mutate</span>(<span class="at">mutation_rate =</span> <span class="fl">1e-8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-5b-f_4-ratio-statistic" class="slide level2">
