@@ -1,6 +1,8 @@
 # *slendr* simulation workshop at [MPI EVA](https://www.eva.mpg.de/index/) (2023)
 
-### You can find the slides [here](https://quartopub.com/sites/979368fd-4892-4010-8a6d-a3bf8563ac99).
+### You can find the slides [here](mpieva-slendr-2023.html).
+
+**It's better if you download the whole repository first and open the slides from there (that way all links to images and plots will work properly).**
 
 ### [Here](https://quartopub.com/sites/99c8c3a2-8c9e-40ea-851f-c467e8759ba8) is a render of the slides as a single HTML page (easier for reference).
 
@@ -90,3 +92,13 @@ I recommend you install the following packages:
 RStudio sometimes interferes with Python setup needed for simulation. To fix this, go to `Tools` -\> `Global Options` in RStudio and set the following options:
 
 <img src="images/rstudio_setting.png" width="70%">
+
+---
+
+This work is licensed under a
+[Creative Commons Attribution 4.0 International License][cc-by].
+
+[![CC BY 4.0][cc-by-image]][cc-by]
+
+[cc-by]: http://creativecommons.org/licenses/by/4.0/
+[cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
