@@ -1,7 +1,8 @@
 # *slendr* simulation workshop at [MPI EVA](https://www.eva.mpg.de/index/) (2023)
 
-**Note:** For anyone looking at these materials in the years since this event, it probably makes more sense for you to take a look at
-[a new workbook](https://bodkan.net/simgen/) I've been working on. It contains the basis of materials archived here, and much, much more.
+> [!NOTE]
+> **Note:** For anyone looking at these materials in the years since this event, it probably makes more sense for you to take a look at
+[a new workbook](https://bodkan.net/simgen/) I've been working on. It contains the basis of the materials archived here, and much, much more.
 
 ### You can find the slides [here](mpieva-slendr-2023.html).
 
